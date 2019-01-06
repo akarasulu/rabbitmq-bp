@@ -57,7 +57,20 @@
         name:
           - rabbitmq-server
 
-    - name: Install rabbitmq_management
-      command: rabbitmq-plugins enable rabbitmq_management
+    - name: Install rabbitmq_management plugin
+      rabbitmq_plugin: 
+        names: rabbitmq_management
+        state: enabled
+
+    - name: Add rabbitmq user
+      rabbitmq_user:
+        user: "{{ subutai.user_variables.email }}"
+        password: "{{ subutai.user_variables.password }}"
+        tags: management, administrator
     
-    
+    - name: Restart rabbitmq node to have changes take effect
+      systemd: 
+        name: rabbitmq-server
+        state: restarted
+        enabled: yes
+      
