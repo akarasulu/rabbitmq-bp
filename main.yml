@@ -52,7 +52,12 @@
         update_cache: true
         state: present
     
-    - name: Install required debs
+    - name: Install rabbitmq-server
       apt:
         name:
           - rabbitmq-server
+
+    - name: Install rabbitmq_management
+      command: rabbitmq-plugins enable rabbitmq_management
+    
+    
