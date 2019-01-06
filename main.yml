@@ -55,4 +55,4 @@
     - name: Install required debs
       apt:
         name:
-          - rabbitmq
+          - rabbitmq-server
