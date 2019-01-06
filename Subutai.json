@@ -61,7 +61,7 @@
         "domain": {
             "description": "Domain name",
             "type": "domain",
-            "default": "h.envs.subut.ai",
+            "default": "mq.envs.subut.ai",
             "validation": "[a-zA-Z0-9_]+"
         },
         "email": {
